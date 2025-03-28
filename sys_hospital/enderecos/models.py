@@ -2,13 +2,18 @@ from django.db import models
 
 # Create your models here.
 class Endereco(models.Model):
-    rua = models.CharField(max_length=255)
-    numero = models.CharField(max_length=10)
-    complemento = models.CharField(max_length=100, blank=True, null=True)
-    bairro = models.CharField(max_length=100)
-    cidade = models.CharField(max_length=100)
-    estado = models.CharField(max_length=50)
-    cep = models.CharField(max_length=10)
+    cep = models.CharField(max_length=8)  
+    rua = models.CharField(max_length=100) 
+    numero = models.CharField(max_length=10)  
+    complemento = models.CharField(max_length=50, blank=True, null=True)  
+    bairro = models.CharField(max_length=50)  
+    cidade = models.CharField(max_length=60)
+    estado = models.CharField(max_length=2) 
+    data_criacao = models.DateTimeField(auto_now_add=True)  # Timestamp automático na criação
+    data_atualizacao = models.DateTimeField(auto_now=True)  # Timestamp automático na atualização
+
+    class Meta:
+        db_table = 'enderecos'
 
     def __str__(self):
         return f"{self.rua}, {self.numero} - {self.cidade}/{self.estado}"

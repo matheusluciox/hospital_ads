@@ -1,11 +1,8 @@
-from rest_framework import generics
+from rest_framework import viewsets, permissions
 from .models import Paciente
 from .serializers import PacienteSerializer
 
-class PacienteListCreateView(generics.ListCreateAPIView):
+class PacienteViewSet(viewsets.ModelViewSet):
     queryset = Paciente.objects.all()
     serializer_class = PacienteSerializer
-
-class PacienteDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Paciente.objects.all()
-    serializer_class = PacienteSerializer
+    permission_classes = [permissions.AllowAny]  # Permite qualquer acesso (para testes)
