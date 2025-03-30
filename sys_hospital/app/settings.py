@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'enderecos',
     'pacientes',
+    'especializacoes',
+    'doencas',
+    'enfermeiros',
+    'medicos',
+    'statusConsulta',
 ]
 
 MIDDLEWARE = [

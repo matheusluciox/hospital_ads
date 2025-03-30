@@ -9,6 +9,7 @@ class Endereco(models.Model):
     bairro = models.CharField(max_length=50)  
     cidade = models.CharField(max_length=60)
     estado = models.CharField(max_length=2) 
+    
     data_criacao = models.DateTimeField(auto_now_add=True)  # Timestamp automático na criação
     data_atualizacao = models.DateTimeField(auto_now=True)  # Timestamp automático na atualização
 

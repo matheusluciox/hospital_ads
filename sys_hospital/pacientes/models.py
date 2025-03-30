@@ -9,6 +9,7 @@ class Paciente(models.Model):
     telefone = models.CharField(max_length=20, blank=True, null=True)
     email = models.EmailField(max_length=100, blank=True, null=True)
     endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)  # Chave estrangeira para Endereco
+        
     data_criacao = models.DateTimeField(auto_now_add=True)
     data_atualizacao = models.DateTimeField(auto_now=True)
 
