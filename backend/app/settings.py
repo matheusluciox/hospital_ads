@@ -37,14 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'enderecos',
-    'pacientes',
-    'especializacoes',
-    'doencas',
-    'enfermeiros',
-    'medicos',
-    'statusConsulta',
+
+    'rest_framework', # Django Rest Framework
+    'drf_spectacular', # APP para gerar a documentação da API
+    
+    'consultas', # APP para gerenciar consultas
+    'enderecos', # APP para gerenciar endereços
+    'pacientes', # APP para gerenciar pacientes
+    'especializacoes', # APP para gerenciar especializações
+    'doencas', # APP para gerenciar doenças
+    'enfermeiros', # APP para gerenciar enfermeiros
+    'medicos', # APP para gerenciar médicos
+    'statusConsulta', # APP para gerenciar status de consultas
 ]
 
 MIDDLEWARE = [
@@ -57,8 +61,18 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 ROOT_URLCONF = 'app.urls'
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Systema de Hospital',  # Título da API que será exibido na documentação
+    'DESCRIPTION': 'API para gerenciar pacientes, médicos, endereços, especializações, doenças, enfermeiros e consultas.',  # Descrição do propósito da API
+    'VERSION': '1.0.0',  # Versão da API, útil para controle de versões
+    # Outros ajustes podem ser adicionados aqui, dependendo das necessidades do projeto
+}
 
 TEMPLATES = [
     {
